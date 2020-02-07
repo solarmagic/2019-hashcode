@@ -15,7 +15,7 @@ vector<bool> check;
 int N;
 
 void read_dataset(char c) {
-    string input = "data/";
+    string input = "../data/";
     input += c;
     input += ".txt";
     freopen(input.c_str(), "r", stdin);
