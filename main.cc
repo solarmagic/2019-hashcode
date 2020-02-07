@@ -25,12 +25,13 @@ void read_dataset(char c) {
     while (n--) {
         string s; cin >> s;
         int t; cin >> t;
+        int q = t;
         set<string> tags;
         while (t--) {
             string tag; cin >> tag;
             tags.insert(tag);
         }
-        dat.push_back({s == "V", t, tags});
+        dat.push_back({s == "V", q, tags});
     }
 }
 vector<int> parse(string line) {
