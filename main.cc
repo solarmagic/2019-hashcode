@@ -9,7 +9,7 @@ struct datum{
     set<string> tags;
 };
 
-vector<datum> data;
+vector<datum> dat;
 vector<bool> check;
 
 int N;
@@ -30,7 +30,7 @@ void read_dataset(char c) {
             string tag; cin >> tag;
             tags.insert(tag);
         }
-        data.push_back({s == "V", t, tags});
+        dat.push_back({s == "V", t, tags});
     }
 }
 vector<int> parse(string line) {
@@ -43,9 +43,9 @@ vector<int> parse(string line) {
         check[n] = true;
     }
     if (ret.size() == 1) {
-        assert(!data[ret[0]].is_vertical);
+        assert(!dat[ret[0]].is_vertical);
     } else if (ret.size() == 2) {
-        assert(data[ret[0]].is_vertical && data[ret[1]].is_vertical);
+        assert(dat[ret[0]].is_vertical && dat[ret[1]].is_vertical);
     } else {
         assert(ret.size() == 2 || ret.size() == 1);
     }
@@ -55,10 +55,10 @@ vector<int> parse(string line) {
 int calc(vector<int>& slide1, vector<int>& slide2) {
     set<string> s1, s2;
     for (auto kk : slide1) {
-        s1.insert(ALL(data[kk].tags));
+        s1.insert(ALL(dat[kk].tags));
     }
     for (auto kk : slide2) {
-        s2.insert(ALL(data[kk].tags));
+        s2.insert(ALL(dat[kk].tags));
     }
     int sz = 0;
     for (auto element : s1) {
@@ -74,7 +74,7 @@ int solve() {
     char dataset; cin >> dataset;
     string input_file_name; cin >> input_file_name; // "my_anwer.txt"
     read_dataset(dataset);
-    freopen("test.txt", "r", stdin);
+    freopen(input_file_name.c_str(), "r", stdin);
     int N; cin >> N;
     string prev, now;
     getline(cin, prev); // flush
