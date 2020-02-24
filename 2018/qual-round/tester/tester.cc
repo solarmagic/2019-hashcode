@@ -4,7 +4,7 @@ using namespace std;
 #define VERBOSE false
 
 const string INPUT_PATH = "../input/";
-const string OUTPUT_PATH = "../output/redcode/";
+const string OUTPUT_PATH = "../output//";
 const string BESTOUT_PATH = "../output/best_output/";
 
 int total;
